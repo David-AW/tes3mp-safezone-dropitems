@@ -10,3 +10,9 @@
 
 
 **4.)** CTRL+F and find ```OnObjectSpawn``` inside **server.lua** then put ```deathDrop.OnObjectSpawn(pid, cellDescription)``` at the *end* of that block
+
+# Planned Features
+
+- Moving safezone data into a json
+- allowing reverse safezone allocation (everywhere is a safezone except cells listed)
+- removing disabling assassins from this script and having disableAssassins.lua detect deathDrop settings
