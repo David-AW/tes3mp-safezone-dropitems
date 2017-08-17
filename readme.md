@@ -1,7 +1,6 @@
 # Install Guide
 
-**1.)** add: ```deathDrop = require("deathdrop")``` 
-*near the top* of **server.lua** *under* ```myMod = require("myMod")```
+**1.)** Add ```deathDrop = require("deathdrop")``` *near the top* of **server.lua** *under* ```myMod = require("myMod")```
 
 
 **2.)** CTRL+F and find ```OnPlayerDeath``` inside **server.lua** then put ```deathDrop.OnPlayerDeath(pid)``` at the *beginning* of that block
