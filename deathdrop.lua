@@ -26,12 +26,7 @@ local exitingMsg = "You have left a safezone.\n"
 local enterMsgColor = color.Green
 local exitMsgColor = color.Red
 
--- Add [ deathDrop = require("deathdrop") ] to the top of server.lua
--- Find "OnPlayerDeath" inside server.lua then put [ deathDrop.OnPlayerDeath(pid, Players[pid], deathReason) ] at the beginning
--- Find "OnPlayerCellChange" inside server.lua then put [ deathDrop.OnPlayerCellChange(pid) ] at the end
--- Find "OnObjectSpawn" inside server.lua then put [ deathDrop.OnObjectSpawn(pid, cellDescription) ] at the end
-
--- you can use [ deathDrop.IsPlayerInJail(pid) ] and [ deathDrop.IsPlayerInSafeZone(pid) ] inside server.lua
+-- you can use [ deathDrop.IsPlayerInJail(pid) ] and [ deathDrop.IsPlayerInSafeZone(pid) ] for your custom scripts if your script needs to know if someone is in the safezone or jailed.
 
 local jail1 = 
 {
@@ -59,8 +54,11 @@ local jailcells = {jail1, jail2}
 local jailed = {}
 local safePlayers = {}
 
-Methods.OnPlayerDeath = function(pid, player, reason)
+Methods.OnPlayerDeath = function(pid)
 
+	local player = Players[pid]
+	local reason = tes3mp.GetDeathReason(self.pid)
+	
 	local cellDescription = player.data.location.cell
 	
 	local diedInSafeZone = false
