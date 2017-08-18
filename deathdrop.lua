@@ -57,7 +57,7 @@ local safePlayers = {}
 Methods.OnPlayerDeath = function(pid)
 
 	local player = Players[pid]
-	local reason = tes3mp.GetDeathReason(self.pid)
+	local reason = tes3mp.GetDeathReason(pid)
 	
 	local cellDescription = player.data.location.cell
 	
